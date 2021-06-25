@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Movie App</title>
+    <title>Movie Database App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+    <h1>Movie Database</h1>
+        <form id="movie-search">
+            <input type="text" id="search-bar" name="search-bar" placeholder="Search Movies">
+            <button type="submit" id="submit-button">Search</button>
+        </form>
+    </header>
+    <div id="display-section">
+    </div>
+    <div id="api-logo"></div>
+    <script src="app.js"></script>
 </body>
 </html>
