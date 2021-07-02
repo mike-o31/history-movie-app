@@ -1,0 +1,37 @@
+#display-search {
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    overflow-x: auto
+}
+
+.container img {
+    width: 300px;
+    transition: 500ms all;
+    padding: 1%
+}
+
+img:hover {
+    margin-left: 0 40px;
+    transform: scale(1.2);
+    cursor: pointer
+}
+
+.details {
+    border: 1px solid lightgray;
+    height: 300px;
+    display: none
+}
+
+.details-display {
+    display: block;
+}
+
+.section {
+    display: flex;
+    width: 100%;
+    overflow-x: auto
+}
