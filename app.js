@@ -3,7 +3,7 @@ const pageFunction = () => {
 
     const apiSource = {
         image: 'https://image.tmdb.org/t/p/w300',
-        searchMovies: 'https://api.themoviedb.org/3/search/movie?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&query=gladiator',
+        searchMovies: 'https://api.themoviedb.org/3/search/movie?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&query=', 
         popularMovies: 'https://api.themoviedb.org/3/movie/popular?sort_by=popularity.desc&api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&page=1',
         topRatedMovies: 'https://api.themoviedb.org/3/movie/top_rated?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&language=en-US&page=1',
         upcomingMovies: 'https://api.themoviedb.org/3/movie/upcoming?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&language=en-US&page=1'
@@ -20,11 +20,11 @@ const pageFunction = () => {
         console.log(`Error: ${error}`)
     }
 
-    
     const renderMovies = function (data) {
         const displayMovies = document.getElementById('display-movies')
         const movieBlock = generateMovies(data)
         const header = sectionHeader(this.title)
+        header.setAttribute('class', this.title)
         
         movieBlock.prepend(header)
         displayMovies.appendChild(movieBlock)
@@ -33,7 +33,7 @@ const pageFunction = () => {
     const renderSearchedMovies = (data) => {
         const displaySearch = document.getElementById('display-search')
         const searchHeader = document.createElement('h2')
-        searchHeader.setAttribute('class', 'movie-header')
+        searchHeader.setAttribute('class', 'search-movies')
         searchHeader.textContent = 'Searched Movies'
         const movieBlock = generateMovies(data)
 
@@ -112,6 +112,7 @@ const pageFunction = () => {
         },
         overview: (movie) => {
             const bioEl = document.createElement('p')
+            bioEl.setAttribute('class', 'bio')
             bioEl.innerHTML = movie.overview
 
             return bioEl
@@ -135,7 +136,6 @@ const pageFunction = () => {
     const getSearchedMovies = (searchBarValue) => {
         getMovies(apiSource.searchMovies + searchBarValue, renderSearchedMovies, handleError)
     }
-    getSearchedMovies(apiSource.searchMovies)
 
     const getPopularMovies = () => {
         const render = renderMovies.bind({ title: 'Popular Movies' })
@@ -170,18 +170,13 @@ const pageFunction = () => {
 
     document.addEventListener('click', (e) => {
         const tagName = e.target.tagName
+        const id = e.target.id
 
         if (tagName.toLowerCase() === 'img' || tagName.toLowerCase() === 'h3') {
             const movieClass = e.target.parentElement
             const contentClass = movieClass.nextElementSibling
             contentClass.classList.add('details-display')
-        }
-    })
-
-    document.addEventListener('click', (e) => {
-        const id  = e.target.id
-
-        if (id === 'close-button') {
+        } else if (id === 'close-button') {
             const content = e.target.parentElement.classList
             content.remove('details-display')
         }
