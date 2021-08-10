@@ -24,7 +24,7 @@ const pageFunction = () => {
         const displayMovies = document.getElementById('display-movies')
         const movieBlock = generateMovies(data)
         const header = sectionHeader(this.title)
-        
+
         movieBlock.prepend(header)
         displayMovies.appendChild(movieBlock)
     }
@@ -153,7 +153,6 @@ const pageFunction = () => {
         getMovies(apiSource.upcomingMovies, render, handleError)
     }
     getUpcomingMovies()
-
 
     movieSearch.addEventListener('submit', (e) => {
         e.preventDefault()
