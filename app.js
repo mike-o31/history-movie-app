@@ -3,10 +3,10 @@ const pageFunction = () => {
 
     const apiSource = {
         image: 'https://image.tmdb.org/t/p/w300',
-        searchMovies: 'https://api.themoviedb.org/3/search/movie?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&query=', 
+        searchMovies: 'https://api.themoviedb.org/3/search/movie?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&query=',
         popularMovies: 'https://api.themoviedb.org/3/movie/popular?sort_by=popularity.desc&api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&page=1',
         topRatedMovies: 'https://api.themoviedb.org/3/movie/top_rated?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&language=en-US&page=1',
-        upcomingMovies: 'https://api.themoviedb.org/3/movie/upcoming?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&language=en-US&page=1'
+        upcomingMovies: 'https://api.themoviedb.org/3/movie/upcoming?api_key=4a6ad87e2ef2e8914c2e80ef05e64ad2&language=en-US&page=1',
     }
 
     const getMovies = (url, render, error) => {
@@ -45,7 +45,7 @@ const pageFunction = () => {
         const section = document.createElement('section')
         section.setAttribute('class', 'section')
 
-        movies.forEach((movie) => {
+        movies.map((movie) => {
             if (movie.poster_path) {
                 section.appendChild(createContentContainer(movie))
                 section.appendChild(createDetailsContainer(movie))
@@ -82,6 +82,7 @@ const pageFunction = () => {
 
         movieInfo.appendChild(createCloseButton())
         movieInfo.appendChild(movieDetails.overview(movie))
+        movieInfo.appendChild(movieDetails.userRating(movie))
         movieInfo.appendChild(movieDetails.releaseDate(movie))
 
         return movieInfo
@@ -103,6 +104,13 @@ const pageFunction = () => {
 
             return imageEl
         },
+        userRating: (movie) => {
+            const userRatingEl = document.createElement('h5')
+            userRatingEl.setAttribute('class', 'user-rating')
+            userRatingEl.innerHTML = `<strong>User Rating: ${movie.vote_average}</strong>`
+
+            return userRatingEl
+        },
         title: (movie) => {
             const titleEl = document.createElement('h3')
             titleEl.innerHTML = movie.title
@@ -112,7 +120,7 @@ const pageFunction = () => {
         overview: (movie) => {
             const bioEl = document.createElement('p')
             bioEl.setAttribute('class', 'bio')
-            bioEl.innerHTML = movie.overview
+            bioEl.innerHTML = `<strong>${movie.overview}</strong>`
 
             return bioEl
         },
