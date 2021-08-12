@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
     <title>Movie Database App</title>
 </head>
@@ -14,8 +16,8 @@
         </a>
         <a href="index.html"><h1>Movie Database</h1></a>
         <form id="movie-search">
-            <input type="text" id="search-bar" name="search-bar" placeholder="Search Movies">
-            <button type="submit" class="button">Search</button>
+            <input type="text" id="search-bar" name="search-bar" placeholder=" Search Movies">
+            <button type="submit" class="button">Search <i class="fas fa-search"></i></button>
         </form>
     </header>
     <div id="display-search" class="container"></div>
@@ -24,7 +26,7 @@
         <p class="copyright">Copyright &copy; 2021 Movie Database</p>
         <img src="img/TMDB-bottomright.svg" class="logo-bottom-right">
     </footer>
-    <script src="functions/apiFunctions.js"></script>
+    <script src="functions/api-functions.js"></script>
     <script src="functions/functions.js"></script>
     <script src="app.js"></script>
 </body>

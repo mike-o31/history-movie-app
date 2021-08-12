@@ -73,6 +73,11 @@ h5 {
 
 #search-bar {
     width: 400px;
+    height: 1.1rem;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
 }
 
 .container {
@@ -136,7 +141,7 @@ footer {
 
 .copyright {
     justify-self: end;
-    font-size: 40px;
+    font-size: 35px;
     grid-row: 2;
 }
 
