@@ -23,7 +23,7 @@ const generateMovies = (data) => {
     const section = document.createElement('section')
     section.setAttribute('class', 'section')
 
-    movies.map((movie) => {
+    movies.forEach((movie) => {
         if (movie.poster_path) {
             section.appendChild(createContentContainer(movie))
             section.appendChild(createDetailsContainer(movie))
