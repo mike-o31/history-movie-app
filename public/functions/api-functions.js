@@ -1,3 +1,7 @@
+// require('dotenv').config()
+
+// const apiKey = process.env.apiKEY
+
 const apiSource = {
     image: 'https://image.tmdb.org/t/p/w300',
     searchMovies: `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`,
