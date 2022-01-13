@@ -7,14 +7,8 @@ body {
 }
 
 header {
-	display: grid;
-	grid-template-columns: 10% 80% 10%;
-	align-items: center;
-	grid-auto-flow: column;
-}
-
-header div {
 	display: flex;
+	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 }
@@ -23,7 +17,7 @@ h1 {
 	text-align: center;
 	justify-self: center;
 	align-self: center;
-	font-size: 4rem;
+	font-size: 4.5rem;
 	margin: 0;
 	background: -webkit-linear-gradient(
 		15deg,
@@ -32,6 +26,13 @@ h1 {
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+h1 a:hover,
+a:visited,
+a:link,
+a:active {
+	text-decoration: none;
 }
 
 h2 {
@@ -153,6 +154,7 @@ footer {
 	border-bottom-right-radius: 0.3rem;
 	justify-self: center;
 	align-self: center;
+	margin-bottom: 3px;
 }
 
 @media screen and (max-width: 800px) {
@@ -162,17 +164,7 @@ footer {
 		align-items: center;
 	}
 	h1 {
-		font-size: 3.5rem;
-	}
-	.movie-header {
-		text-align: center;
-		justify-self: center;
-		align-self: center;
-	}
-	.logo-top-left {
-		width: 10rem;
-		height: 5rem;
-		margin: 0;
+		font-size: 5em;
 	}
 	#movie-search {
 		display: flex;
@@ -183,6 +175,8 @@ footer {
 		width: 75%;
 		justify-self: center;
 		align-self: center;
+		margin-top: 1px;
+		margin-bottom: 3px;
 	}
 	#search-bar {
 		text-align: center;
@@ -204,8 +198,11 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+	header {
+		margin-top: 5px;
+	}
 	h1 {
-		font-size: 2.5rem;
+		font-size: 4em;
 	}
 	.movie-header {
 		text-align: center;
@@ -219,5 +216,8 @@ footer {
 	}
 	.bio {
 		font-size: 70%;
+	}
+	#search-bar {
+		margin-bottom: 1px;
 	}
 }
